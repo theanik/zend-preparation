@@ -108,7 +108,62 @@ echo @$ppp; // with out @ here will show undefine $ppp
 
 # Increment / Decrement operators
 
-$s = 'W';
-for ($n=0; $n<6; $n++) {
-    echo $s++ . PHP_EOL;
+// $s = 'W';
+// for ($n=0; $n<6; $n++) {
+//     echo $s++ . PHP_EOL;
+// }
+
+# Logical operators
+
+$l1 = 34;
+$l2 = 50;
+$l3 = 66;
+
+//or
+
+if($l1 || false){
+    echo "or" . PHP_EOL;
 }
+
+//and
+if(1==1 && 2==2 && 3==3){
+    echo "and";
+}else{
+    echo "ff";
+}
+
+// xor
+
+if(1==1 xor 1==2 xor 3==3 xor 4==4 xor 9==5){
+    echo "xor";
+}else{
+    echo "else";
+}
+
+// $h = false and true;
+// $g = (false and true);
+
+// var_dump($h);
+// var_dump($g);
+
+# Array operator
+
+$arr = array('a' => 'apple', 'b' => 'bpple','c' => 'cpple');
+$brr = array('a' => 'spple','b' => 'epple');
+
+//union
+
+$c = $arr == $brr;
+var_dump($c);
+
+# Type Operator
+
+class MyClass {
+
+}
+
+$a = new MyClass();
+
+var_dump($a instanceof MyClass);
+var_dump($a instanceof MyClass1);
+
