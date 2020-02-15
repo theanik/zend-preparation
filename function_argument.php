@@ -44,3 +44,4 @@ arrSum($arr); // argument
     echo "Name : {$name} , Age : {$age} ";
 }
   person(34);
+ 
