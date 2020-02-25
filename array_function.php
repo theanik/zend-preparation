@@ -126,6 +126,6 @@ $dummyArr = ['first' => '1st','second' => '2nd'];
 
 $tmp = array_key_exists('first',$dummyArr) ? "Found" : "Not Found";
 echo $tmp;
-
+echo "\n\n\n";
 $tmp2 = array_search('1st',$dummyArr);
 echo $tmp2;
