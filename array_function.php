@@ -129,3 +129,11 @@ echo $tmp;
 
 $tmp2 = array_search('1st',$dummyArr);
 echo $tmp2;
+
+echo "\n\n\n";
+
+$vegetable = ["Carrot","Tomato","Potato","Cucomber"];
+
+$someVeg = array_slice($vegetable, 1,-1);
+
+print_r($someVeg);
