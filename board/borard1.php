@@ -33,6 +33,30 @@
 
 // $array = array ('a1', 'a3', 'a5', 'a10', 'a20');
 
+/**
+ * The ArrayAccess interface to provide accessing object as Array
+ */
+
+
+ class HiWorld implements ArrayAccess {
+    function offsetExists($x){
+        return true;
+    }
+
+    function offsetGet(){
+
+    }
+
+    function offsetSet(){
+        
+    }
+    function offsetUnset(){
+        
+    }
+ }
+
+ $hi = new HiWorld();
+
 // asort ($array);
 // print_r ($array); 
 
