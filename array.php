@@ -220,6 +220,28 @@ $result = array_intersect_assoc($a1,$a3);
 $result_n = array_intersect($n1,$n2);
 $result_n = array_intersect_assoc($n1,$n2);
 
-$result = arrra
+$result = array_diff($n1,$n2); // 1,4,6,9 are not in n2. so this is result
+$result = array_diff_assoc($n1,$n2); // both of array for 2 same value and offset
 
-print_r($result_n);
+print_r($result);
+
+
+/**
+ * Array utility function
+ * Note : they are no modify main array
+ *  array_map()
+ *  array_walk() // apply a function in all element of array
+ */
+
+$person = array('anik','sid','mid','fit','asos');
+
+function fn($val){
+    if($val[0] == 'a' || $val[0] == 'A'){
+        return true;
+    }
+}
+
+$filterName = array_filter($person,'fn');
+
+print_r($filterName);
+
