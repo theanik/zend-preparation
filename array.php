@@ -149,5 +149,77 @@ print_r(array_merge_recursive($a1,$a2,$a3));
  *  arsort()
  *  ksort()
  *  krsort()
+ *  usort()
+ *  natsort()
  */
 
+ //usort() use for sort an array by user define function comparism
+
+ function myFunc($a,$b) {
+     if($a == $b) return 0;
+     return ($a<$b) ? -1 : 1;
+ }
+
+ $arr = [4,9,3,5,2];
+ usort($arr, "myFunc");
+
+ print_r($arr);
+
+ $arr2 = ['n'=> 41, 'a'=>9,'g'=>3,'G'=>5,'A'=>2,'P' => "Hi",'d' => 'ha',33,'a1','b4','aa2'];
+ 
+//  uksort($arr2,"myFunc");
+//  print_r($arr2);
+
+asort($arr2,SORT_NATURAL);
+
+print_r($arr2);
+ // SORT_NUMERIC - Compare item numarically 
+ // SORT_NATURAL -- similer of natsort()
+
+
+
+
+
+ /**
+  * Search in Index and associativ array
+  * in_array() reutrn boolean
+  * array_serach() return offset of value
+  * 
+
+  * Strict Mood - ON - OF
+  */
+
+$nums = ['3',4,5,7,9,054,44,'p' => "hi"];
+
+if(in_array(3,$nums, true)){ // if 3rd parameter will be true, the strice mood are on . then it check value and datatype
+    echo "$n in here \n";
+}
+
+$getIndex = array_search(054,$nums);
+$getIndex = array_search("hi",$nums); // array_search function return index - offset
+echo $getIndex."\n";
+if(key_exists(0,$nums)){
+    echo "here";
+}
+
+/**
+ * array_intersect() -- return only which element are same
+ * array_intersect_assoc() -- return element and key are same
+ */
+
+$a1=array("a"=>"red","b"=>"green","c"=>"blue","d"=>"yellow");
+$a2=array("e"=>"red","f"=>"green","g"=>"blue");
+$a3=array("e"=>"red","f"=>"green","c"=>"blue");
+
+$n1 = [1,2,4,6,9,8];
+$n2 = [11,2,3,44,5,7,88,8];
+
+$result = array_intersect($a1,$a2);
+$result = array_intersect_assoc($a1,$a3);
+
+$result_n = array_intersect($n1,$n2);
+$result_n = array_intersect_assoc($n1,$n2);
+
+$result = arrra
+
+print_r($result_n);
