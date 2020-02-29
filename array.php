@@ -245,3 +245,36 @@ $filterName = array_filter($person,'fn');
 
 print_r($filterName);
 
+$numbers = [3,5,6,7];
+
+function sq($n){
+    echo $n*$n."\n";
+}
+
+array_walk($numbers, "sq");
+
+
+function q($n){
+    return $n*$n*$n;
+}
+
+$qArr = array_map("q",$numbers);
+
+print_r($qArr);
+
+/**
+ * array_reduce()
+ */
+
+ $nums = [1,2,3,4];
+ function getOdd($n){
+     return $n&1;
+ }
+ $newNum = array_filter($nums,"getodd");
+
+ print_r($newNum);
+
+
+
+
+
