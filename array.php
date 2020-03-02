@@ -264,6 +264,10 @@ print_r($qArr);
 
 /**
  * array_reduce()
+ * range()]
+ * array_rand()
+ * shuffle
+ * 
  */
 
  $nums = [1,2,3,4];
@@ -273,6 +277,73 @@ print_r($qArr);
  $newNum = array_filter($nums,"getodd");
 
  print_r($newNum);
+
+
+ function getSum($oldval=0,$newval) {
+    return $oldval + $newval;
+ }
+
+ function getMul($oldval,$newval) {
+    return $oldval * $newval;
+ }
+
+ echo $sum = array_reduce($nums,"getSum") . PHP_EOL;
+ echo $mul = array_reduce($nums,"getmul",10); // with out 3rd paramerete this return 0, besuse last element by default 0
+
+
+
+ $rangeArr = range(1,10);
+
+ // range(from,to,step)
+
+ $oddArr = range(0,50,7);
+ print_r($oddArr);
+
+ $randomNumber = range(1,33);
+
+ $data = ['anik','me','nobab','poran','kaltu'];
+ $randTwoName = array_rand($data,2);
+
+ print($data[$randTwoName[0]]) . PHP_EOL;
+ print($data[$randTwoName[1]]);
+
+ 
+ $rand_val = mt_rand(1,1000);
+echo $rand_val . PHP_EOL;
+ function toss($val) {
+     return $val&1 ? "Tail" : "Head" . PHP_EOL;
+ }
+
+ echo toss($rand_val);
+
+$randSuffle = range(10,20);
+
+shuffle($randSuffle);
+print_r($randSuffle);
+
+$aaarray = array('a'=>'A','b'=>'B','c'=>'C','d'=>'D');
+
+$arrRend = array_rand($aaarray); // return key
+
+// print_r($arrRend);
+echo $aaarray[$arrRend];
+
+
+$small = range('a','z');
+$capital = range('A','Z');
+
+// $arr = array_merge($small,$capital);
+$myArr = array_combine($small,$capital);
+
+$data = function(array $small, array $capital){
+    $count = count($small);
+    for($i=0;$i<$count;$i++) {
+        echo "'$small[$i]' => '$capital[$i]'".PHP_EOL;
+    }
+};
+echo $data($small,$capital);
+// print_r($myArr);
+
 
 
 
