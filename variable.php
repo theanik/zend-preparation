@@ -12,15 +12,13 @@ $doo = "coo";
 
 // echo $$$coo > PHP_EOL;
 
-<<<<<<< HEAD
 $n1 = "Anik";
 $n2 = "Anwar";
 
 echo "$n1 $n2"; // in single ' ' variable will parse
 
-=======
 $x = 5;
->>>>>>> f4d81d4ec68d034383671945769c3939d9f0cd48
+
 
 function myFunc(){
     global $x;
