@@ -223,7 +223,7 @@ $result_n = array_intersect_assoc($n1,$n2);
 $result = array_diff($n1,$n2); // 1,4,6,9 are not in n2. so this is result
 $result = array_diff_assoc($n1,$n2); // both of array for 2 same value and offset
 
-print_r($result);
+print_r($result_n);
 
 
 /**
