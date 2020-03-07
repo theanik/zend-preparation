@@ -231,6 +231,7 @@ print_r($result_n);
  * Note : they are no modify main array
  *  array_map()
  *  array_walk() // apply a function in all element of array
+ * array_walk_recursive()
  */
 
 $person = array('anik','sid','mid','fit','asos');
@@ -261,6 +262,29 @@ function q($n){
 $qArr = array_map("q",$numbers);
 
 print_r($qArr);
+
+$x = '{"Title": "The Cuckoos Calling",
+    "Author": "Robert Galbraith",
+    "Detail": {
+    "Publisher": "Little Brown",
+    "Address" : {
+        "address 1": "Dhaka",
+        "address 2": "Feni"
+    }
+    }}';
+    
+    $x = json_decode($x,true);
+    
+    // echo gettype($x);
+    
+    // foreach($x as $k=>$v){
+    //     echo "$k : $v\n";
+    // }
+    function myf($v,$k){
+        echo "$v : $k\n";
+    }
+    
+array_walk_recursive($x,"myf");
 
 /**
  * array_reduce()
@@ -334,6 +358,7 @@ $capital = range('A','Z');
 
 // $arr = array_merge($small,$capital);
 $myArr = array_combine($small,$capital);
+// print_r($myArr);
 
 $data = function(array $small, array $capital){
     $count = count($small);
