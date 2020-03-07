@@ -94,3 +94,22 @@ $a3=array("e"=>"red","f"=>"green","c"=>"blue");
 
 
 
+$books = ['Upakkhan','Nijeke khoja','Kalbel','Hyride Array'];
+$authors = ['Mona','Anik','Somorsh','Masud'];
+
+array_multisort($books,$authors);
+
+print_r($books);
+print_r($authors);
+print_r(array_combine($authors,$books));
+
+//cool!!
+
+$temp_files = array("temp15.txt","temp10.txt",
+"temp1.txt","temp22.txt","temp2.txt","Temp3.xt");
+
+//sort($temp_files); // 1,10,15,2,22
+//sort($temp_files, SORT_NATURAL); // 1,2,10 ... // this mehtod are not preserve keys
+sort($temp_files,SORT_NATURAL,SORT_FLAG_CASE);
+// natcasesort($temp_files);
+print_r($temp_files);
