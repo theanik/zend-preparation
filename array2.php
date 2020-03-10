@@ -110,6 +110,8 @@ $temp_files = array("temp15.txt","temp10.txt",
 
 //sort($temp_files); // 1,10,15,2,22
 //sort($temp_files, SORT_NATURAL); // 1,2,10 ... // this mehtod are not preserve keys
-sort($temp_files,SORT_NATURAL,SORT_FLAG_CASE);
-// natcasesort($temp_files);
+// sort($temp_files,SORT_NATURAL);
+// natcasesort($temp_files); //this mehtod are not preserve keys
+
 print_r($temp_files);
+

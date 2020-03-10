@@ -143,3 +143,7 @@ echo wordwrap($sentance,30,"\n",true);
 
 // echo nl2br("One line.\nAnother line.");
 
+sscanf("2011-09-09", '%d %d %d',$year,$month,$day);
+
+echo $year;
+

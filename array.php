@@ -139,6 +139,8 @@ $a1=array("a"=>"red","b"=>"green");
 $a2=array("c"=>"blue","b"=>"yellow");
 $a3=array("c"=>"blue1","b"=>"yellow4");
 print_r(array_merge_recursive($a1,$a2,$a3));
+// print_r(array_merge($a1,$a2,$a3));
+echo "--------------------------------------------------------";
 
 /**
  *  Array soring
@@ -370,7 +372,43 @@ echo $data($small,$capital);
 // print_r($myArr);
 
 
+echo PHP_EOL;
+echo PHP_EOL;
+echo PHP_EOL;
+/**
+ * array manupulate functuion
+ * - insert -delete
+ * array_unshift()
+ */
 
+ $array = array(2,3,4,5,6,7,8,9);
+ $array2 = ['a'=>'Amarica','b'=>"BanglaDesh",'c'=>'Canala'];
+ $color = array(0=>'red',1=>'green');
+ //  array_unshift($array2, 'z'=>'Zombia'); this occured an error
+ array_unshift($array2,"Zomabia","Entartica");
+ array_unshift($color,'anik','color');
+ print_r($color);
+ echo PHP_EOL;
+ echo PHP_EOL;
+ $array = array(2,3,4,5,6,7,8,9);
+ $array2 = ['a'=>'Amarica','b'=>"BanglaDesh",'c'=>'Canala'];
+ $color = array(0=>'red',1=>'green');
+ echo array_shift($array2); //remove 1st element of array and return value 
+ echo PHP_EOL;
+ print_r($array2);
 
+ echo array_push($array2,"Zombia","Zordan","MyLand"); // return number of total element
+ print_r($array2);
 
+echo array_pop($array2); // delete a last element from an array and retrun value
+print_r($array2);
 
+$a=array("red","green");
+print_r(array_pad($a,6,"blue"));
+print_r($a);
+
+$padArr = array_pad($array2,6,"MyKingdom");
+print_r($padArr);
+
+$padArr2 = array_pad($array2,-2,"MyKingdom");
+print_r($padArr2);
