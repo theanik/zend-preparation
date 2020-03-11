@@ -191,3 +191,167 @@ class myClass2 {
  // it only can count public propartry
 $ex = new ArrayObject(new myClass2);
 echo $ex->count();
+
+
+
+/**
+ * ArrayObject::exchangeArray
+ * it exchange object one instance variable to onther variable
+ */
+
+ $toys = ["car" => 3,"bike" => 4,"Truck"];
+
+ $players = ["Anik","Jhon wick","Haysel grese"];
+
+ $obj1 = new ArrayObject($toys);
+
+ $exObj1 = $obj1->exchangeArray($players);
+
+
+ print_r($obj1);
+ print_r($exObj1);
+
+ /**
+  * ArrayObject::getArrayCopy
+  * Create a copy of the array object
+  */
+  $players = ["Anik","Jhon wick","Haysel grese"];
+  $playerArrObj = new ArrayObject($players);
+  $playerArrObj[1] = "Mona";
+
+  $copyHere = $playerArrObj->getArrayCopy();
+
+  print_r($copyHere);
+
+/**
+ * ArrayObject::getFlags()
+ * gets a behavior flags
+ * php তে মোট ২টি  ArrayObject flags আছে। 
+ *  1 . ArrayObject::STD_PROP_LIST
+ *  2 . ArrayObejct::ARRAY_ AS_PROP
+ * এখানে ArrayObejct::STD_PROP_LIST এর জন্য মান  ১ রিটার্ন করে এবং ArrayObject::ARRAY_AS_PROPS এর জন্য ২ রিটার্ন করে। 
+ */
+
+$fruits = array("lemons" => 1, "oranges" => 4, "bananas" => 5, "apples" => 10);
+
+$arrobj1 = new ArrayObject($fruits);
+
+$flags = $arrobj1->getFlags();
+echo PHP_EOL;
+echo $flags;
+
+$arrobj1->setFlags(ArrayObject::ARRAY_AS_PROPS);
+// $arrobj1->setFlags(ArrayObject::STD_PROP_LIST);
+
+
+
+$flags = $arrobj1->getFlags();
+echo PHP_EOL;
+echo $flags;
+/**
+ * ArrayObject::getiterator
+ * 
+ */
+$data = $arrobj1->getiterator();
+
+print_r($data);
+
+while($data->valid()){
+    echo $data->key()." has ".$data->current()." item \n";
+    $data->next();
+}
+
+
+/**
+ * ArrayObject::setIteratorsClass
+ * ArrayObject::getIteratorsClass
+ * 
+ * ArrayIterator is a default php class
+ * 
+ * user define must be extend ArrayIterator class
+ */
+
+
+ class myIterators extends ArrayIterator{
+
+ }
+
+ class myClass1 {
+
+ }
+
+$fruits = array("lemons" => 1, "oranges" => 4, "bananas" => 5, "apples" => 10);
+
+$fio = new ArrayObject($fruits);
+
+//get class name 
+$calssName = $fio->getIteratorClass();
+
+var_dump($calssName);
+
+$fio->setIteratorClass("myIterators");
+$calssName = $fio->getIteratorClass();
+
+var_dump($calssName);
+
+$fio->setIteratorClass("myClass1");
+$calssName = $fio->getIteratorClass();
+
+var_dump($calssName);
+echo PHP_EOL;
+echo PHP_EOL;
+
+/**
+ * ArrayIterator::rewind
+ * when use rewind the array iterator reassignel from first
+ */
+$fruits = array("lemons" => 1, "oranges" => 4, "bananas" => 5, "apples" => 10);
+$arobj = new ArrayObject($fruits);
+$iterator = $arobj->getIterator();
+
+$iterator->next();
+// $iterator->next();
+echo $iterator->current() . PHP_EOL; //excpted 4 .OP;4 cool!!
+$iterator->next();
+echo $iterator->current() . PHP_EOL; //excpted 5 .OP;5 cool!!
+$iterator->rewind();
+echo $iterator->current() . PHP_EOL; //excpted 5 .OP;5 cool!!
+
+/**
+ * ArrayIterator::seek
+ */
+
+$fruits = array("lemons" => 1, "oranges" => 4, "bananas" => 5, "apples" => 10);
+$arobj = new ArrayObject($fruits);
+$iterator = $arobj->getIterator();
+
+$iterator->seek(2); // as array numarical index
+var_dump($iterator->current());
+
+
+/**
+ * serialize
+ * unserialize
+ */
+
+$fruits = array("lemons" => 1, "oranges" => 4, "bananas" => 5, "apples" => 10);
+$arobj = new ArrayObject($fruits);
+// $iterator = $arobj->setIterator();
+
+$serilzeData = $arobj->serialize();
+var_dump($serilzeData);
+
+
+$realData = $arobj->unserialize($serilzeData);
+
+var_dump($realData);
+
+
+$sobj = new ArrayIterator($fruits);
+
+$s = serialize($sobj);
+var_dump($s);
+
+$r = unserialize($s);
+
+var_dump($r);

@@ -1,6 +1,6 @@
 <?php
 
-class myClass{
+class MyClass{
     public $name = "ANik";
 
     public function getName() {
@@ -8,5 +8,5 @@ class myClass{
     }
 }
 
-$obj = new myClass;
+$obj = new MyClass;
 $obj->getName();
