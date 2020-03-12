@@ -1,12 +1,30 @@
 <?php
 
-class MyClass{
-    public $name = "ANik";
+class Person{
+    public $name;
+    public $age;
 
-    public function getName() {
-        echo $this->name;
+    function __construct($name,$age=0)
+    {
+        $this->name = $name;
+        $this->age = $age;
+        $this->greetings();
+    }
+
+    function greetings(){
+        echo "Salam \n";
+        $this->sayName();
+    }
+
+    function sayName(){
+        if($this->age){
+            echo "I'm $this->name , running $this->age year's old \n";
+        }else{
+            echo "I'm $this->name \n";
+        }
+        
     }
 }
 
-$obj = new MyClass;
-$obj->getName();
+new Person("anik",21);
+new Person("Mona");
