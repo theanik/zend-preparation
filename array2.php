@@ -115,3 +115,5 @@ $temp_files = array("temp15.txt","temp10.txt",
 
 print_r($temp_files);
 
+$a = array(true, false);
+print_r($a);
