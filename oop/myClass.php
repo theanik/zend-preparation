@@ -191,3 +191,124 @@ class ClassName1{
 
 echo ClassName2::class;
 
+
+/**
+ * Properties
+ * Class member variables are called Properties
+ */
+
+
+ class PropertiesTest{
+     private $var1 = 'hello'." world";
+     private $var2 = <<<EOD
+     ore 
+     gelam re
+EOD;
+    private $var3 = <<<'EOT'
+    this it
+    nowdoc
+EOT;
+
+    private $var4 = 3+5;
+    
+    const myconst = 10;
+
+    private $var5 = self::myconst; //cool
+    private $vara = array(true,false,true);
+
+    function displayProperties(){
+        echo $this->var1 . PHP_EOL;
+        echo $this->var2 . PHP_EOL;
+        echo $this->var3 . PHP_EOL;
+        echo $this->var4 . PHP_EOL;
+        echo $this->var5 . PHP_EOL;
+        print_r($this->vara);
+    }
+ }
+
+ $p = new PropertiesTest();
+ $p->displayProperties();
+
+
+/**
+ * we can define properties data type
+ * from php 7.4
+ */
+// class User
+// {
+//     public int $id;
+//     public string $name;
+
+//     public function __construct(int $id, string $name)
+//     {
+//         $this->id = $id;
+//         $this->name = $name;
+//     }
+// }
+
+// $user = new User(1234, "php");
+// echo "ID: " . $user->id;
+// echo "\n";
+// echo "Name: " . $user->name;
+
+
+/**
+ * Class Constant
+ * by default const are public
+ */
+
+ 
+
+ class Constant{
+    const CONST1 = "Anik";
+    private $var = self::CONST1;
+
+    function getData(){
+        echo "$this->var \n";
+    }
+ }
+
+ echo Constant::CONST1; a();
+
+
+
+$con = new Constant();
+$con->getData(); a();
+echo $con::CONST1;
+a();
+
+
+
+const ONE = 1;
+
+class Foo1 {
+    // As of PHP 5.6.0
+    private const TWO = ONE * 2;
+    private const THREE = ONE + self::TWO;
+    public const SENTENCE = 'The value of THREE is '.self::THREE;
+}
+
+// echo Foo1::TWO; this give an eorror
+echo Foo1::SENTENCE;
+
+a();
+class AA{
+    const DATA = 10;
+
+    function getDataSelf(){
+        return self::DATA;
+    }
+
+    
+}
+
+class BB extends AA{
+    const DATA = 20;
+    function getDataSelf(){
+        return parent::getDataSelf();
+    }
+    
+}
+
+$bb = new BB();
+echo $bb->getDataSelf();
