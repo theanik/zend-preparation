@@ -298,17 +298,27 @@ class AA{
     function getDataSelf(){
         return self::DATA;
     }
+    function getDataStatic(){
+        return static::DATA;
+    }
+    function getDatathis(){
+        return $this::DATA;
+    }
 
     
 }
 
 class BB extends AA{
     const DATA = 20;
-    function getDataSelf(){
-        return parent::getDataSelf();
-    }
+    // function getDataSelf(){
+    //     return parent::getDataSelf();
+    // }
     
 }
 
 $bb = new BB();
-echo $bb->getDataSelf();
+echo $bb->getDataSelf(); // 10
+a();
+echo $bb->getDataStatic(); // 20
+a();
+echo $bb->getDatathis(); // 20
