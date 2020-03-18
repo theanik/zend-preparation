@@ -315,6 +315,10 @@ class BB extends AA{
     // }
     
 }
+echo BB::DATA;
+a();
+echo "okk";
+a();
 
 $bb = new BB();
 echo $bb->getDataSelf(); // 10
@@ -322,3 +326,12 @@ a();
 echo $bb->getDataStatic(); // 20
 a();
 echo $bb->getDatathis(); // 20
+
+
+a();
+a();
+a();
+
+/**
+ * Early vs Late bnding
+ */

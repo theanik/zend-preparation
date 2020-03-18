@@ -88,12 +88,13 @@ print_r($myWife);
 /**
  * array_slice();
  */
-
+echo "array_slice()";
 $v = ['a','e','i','o','u'];
 
 $sv = array_slice($v,1,-2);
+print_r($sv);
 $sv2 = array_slice($v,-4,-1,true); // use true for get orginal array index
-
+print_r($sv2);
 $arr = ['a' => 10,'b' => 123,'c' => "hi", 'd' => 44,3,56,'aa' => 'fu',30 => 31,44];
 
 $arrv = array_slice($arr,1,null,true);
