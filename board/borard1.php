@@ -38,34 +38,58 @@
  */
 
 
- class HiWorld implements ArrayAccess {
-    function offsetExists($x){
-        return true;
-    }
+//  class HiWorld implements ArrayAccess {
+//     function offsetExists($x){
+//         return true;
+//     }
 
-    function offsetGet(){
+//     function offsetGet(){
 
-    }
+//     }
 
-    function offsetSet(){
+//     function offsetSet(){
         
-    }
-    function offsetUnset(){
+//     }
+//     function offsetUnset(){
         
+//     }
+//  }
+
+//  $hi = new HiWorld();
+
+// // asort ($array);
+// // print_r ($array); 
+
+// // $_1 = [ true => 'b',1 => 'c'];
+
+// // var_dump($_1);
+// $array = array (1, 2, 3, 5, 8, 13, 21, 34, 55);
+// $sum = 0;
+// for ($i = 0; $i < 5; $i++) {
+// echo $array[$array[$i]].PHP_EOL;
+// }
+// // echo $sum; 
+
+class demoSleepWakeup {
+    public $resourceM;
+    public $arrayM;
+
+    public function __construct() {
+        $this->resourceM = fopen("demo.txt", "w");
+        $this->arrayM = array(1, 2, 3, 4); // Enter code here
     }
- }
 
- $hi = new HiWorld();
+    public function __sleep() {
+        return array('arrayM');
+    }
 
-// asort ($array);
-// print_r ($array); 
-
-// $_1 = [ true => 'b',1 => 'c'];
-
-// var_dump($_1);
-$array = array (1, 2, 3, 5, 8, 13, 21, 34, 55);
-$sum = 0;
-for ($i = 0; $i < 5; $i++) {
-echo $array[$array[$i]].PHP_EOL;
+    public function __wakeup() {
+        $this->resourceM = fopen("demo.txt", "w");
+    }
 }
-// echo $sum; 
+
+$obj = new demoSleepWakeup();
+$serializedStr = serialize($obj);
+var_dump($obj);
+var_dump($serializedStr);
+var_dump(unserialize($serializedStr));
