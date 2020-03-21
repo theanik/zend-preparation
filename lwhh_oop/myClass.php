@@ -199,14 +199,19 @@ echo ClassName2::class;
 
 
  class PropertiesTest{
+     static function myfunc(){
+         return "from static function \n";
+     }
      private $var1 = 'hello'." world";
      private $var2 = <<<EOD
      ore 
      gelam re
+     
 EOD;
     private $var3 = <<<'EOT'
     this it
     nowdoc
+    $this->var4;
 EOT;
 
     private $var4 = 3+5;
@@ -214,8 +219,8 @@ EOT;
     const myconst = 10;
 
     private $var5 = self::myconst; //cool
-    private $vara = array(true,false,true);
-
+    private $vara = array(true => true,false => false,true => true);
+    //  private $var8 = self::myfunc(); // this is invalid
     function displayProperties(){
         echo $this->var1 . PHP_EOL;
         echo $this->var2 . PHP_EOL;
