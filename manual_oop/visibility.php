@@ -78,3 +78,21 @@ class MyClass5{
 
 $test = new MyClass5;
 $test->baz(new MyClass5);
+
+
+
+class TestClass{
+    protected $name = "HI World \n";
+}
+
+class TestClass2 extends TestClass{
+    public $data;
+    function __construct(){
+        $this->data = $this->name;;
+    }
+}
+
+
+$t = new TestClass2;
+
+echo $t->data;
