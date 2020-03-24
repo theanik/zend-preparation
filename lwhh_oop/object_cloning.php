@@ -18,3 +18,13 @@ var_dump($p === $p1);
 $p = $p1;
 
 var_dump($p === $p1);
+
+
+$original = new Person("Mona");
+$clone = $original;
+
+var_dump($original === $clone);
+
+
+
+
