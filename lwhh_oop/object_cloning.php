@@ -26,5 +26,3 @@ $clone = $original;
 var_dump($original === $clone);
 
 
-
-
