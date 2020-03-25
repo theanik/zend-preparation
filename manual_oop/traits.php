@@ -110,6 +110,7 @@ $vc->sh();
 
 
 
+
 /**
  * trait property value and class property value mustbe always same
  */
