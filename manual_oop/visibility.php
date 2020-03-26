@@ -61,6 +61,11 @@ echo (new MyClass4)->foo2();
 a(2);
 
 
+/**
+ * Object visility
+ */
+
+
 class MyClass5{
     private $name;
 
@@ -78,6 +83,29 @@ class MyClass5{
 
 $test = new MyClass5;
 $test->baz(new MyClass5);
+
+
+
+class Object1{
+    function __construct($outer){
+        var_dump($outer);
+        $outer->name = "anik";
+        var_dump($outer);
+    }
+}
+
+class Outer{
+    public $name = "mona";
+}
+
+$outer = new Outer;
+$obj = new Object1($outer);
+// print $outer->name;
+
+echo PHP_EOL;
+echo PHP_EOL;
+echo PHP_EOL;
+
 
 
 

@@ -93,3 +93,13 @@ $serializedStr = serialize($obj);
 var_dump($obj);
 var_dump($serializedStr);
 var_dump(unserialize($serializedStr));
+
+
+class A {
+    static $word = "hello";
+    static function hello() {print static::$word;}
+   }
+   class B extends A {
+    static $word = "bye";
+   }
+   B::hello();
