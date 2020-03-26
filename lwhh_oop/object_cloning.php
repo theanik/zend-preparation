@@ -26,3 +26,13 @@ $clone = $original;
 var_dump($original === $clone);
 
 
+
+$p4 = new Person("mona");
+
+$p5 = clone $p4; //false
+var_dump($p4 === $p5);
+
+$p5 =  $p4; //true
+var_dump($p4 === $p5);
+
+
