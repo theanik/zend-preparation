@@ -107,7 +107,14 @@ class CCC extends BBB {
 
 }
 
-CCC::test();
+class DDD extends CCC {
+    public static function who() {
+        echo __CLASS__."\n";
+    }
+
+}
+
+DDD::test();
 
 
 a(3);
