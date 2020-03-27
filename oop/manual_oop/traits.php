@@ -125,3 +125,22 @@ class PropertiesExample {
     public $same = "anik"; // Allowed as of PHP 7.0.0; E_STRICT notice formerly
     // public $different = true; // Fatal error
 }
+
+
+trait aaa{
+    function sayHI(){
+        echo "JIs";
+    }
+}
+
+trait bbb{
+    use aaa;
+}
+
+class ttt{
+    use bbb;
+
+
+}
+
+(new ttt)->sayHI();

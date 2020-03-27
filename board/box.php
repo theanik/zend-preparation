@@ -72,3 +72,4 @@ function lcm($a,$b){
 }
 
 echo lcm(4,8);
+
