@@ -124,3 +124,17 @@ class A {
     }
    }
    C::test();
+
+
+   class SleepyHead {
+    protected $name = "Dozy";
+    public function __sleep() {
+    $this->name = "Asleep";
+    }
+    public function __wakeup() {
+    $this->name = "Rested";
+    }
+   }
+   $obj = unserialize(serialize(new SleepyHead()));
+
+   var_dump($obj);
