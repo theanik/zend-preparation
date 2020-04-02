@@ -387,3 +387,36 @@ $d = new  D;
 
  new P;
  new C1;
+
+ echo "-------------------------------------";
+
+ class CKm
+ {
+     public function me1()
+     {
+
+     }
+
+     public function me2()
+     {
+         
+     }
+     private function me4()
+     {
+         
+     }
+     protected function me3()
+     {
+         
+     }
+ }
+
+ class ckm2 extends ckm{
+     public function cm33(){
+
+     }
+ }
+
+ $ckm = new ckm2;
+
+print_r(get_class_methods($ckm)); // get only pulic method
