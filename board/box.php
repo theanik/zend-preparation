@@ -138,3 +138,60 @@ class A {
    $obj = unserialize(serialize(new SleepyHead()));
 
    var_dump($obj);
+
+
+
+
+   interface foo{
+    function d();
+}
+
+interface bar{
+    function d();
+}
+
+abstract class FooBar{
+    function do(){
+        return strrev(9);
+    }
+}
+
+class w extends FooBar implements foo,bar{
+    function d(){
+
+    }
+    function __destruct(){
+        var_dump($this->do());
+    }
+}
+
+new w;
+
+
+
+class CkClass
+{
+
+}
+
+$ck = new CkClass;
+var_dump(is_object($ck));
+if(is_a($ck, 'CkClass')){
+    echo '$ck is instance of CkClass' .PHP_EOL;
+}
+
+$a = false;
+
+echo is_bool($a) ? "true" : "false";
+
+echo "\n";
+echo "\n";
+echo "\n";
+class Hay
+{
+
+}
+
+
+$h = new Hay;
+var_dump(!($h instanceof stdClass));
