@@ -388,7 +388,7 @@ $d = new  D;
  new P;
  new C1;
 
- echo "-------------------------------------";
+ echo "-------------------------------------\n";
 
  class CKm
  {
@@ -418,5 +418,18 @@ $d = new  D;
  }
 
  $ckm = new ckm2;
-
+ 
+var_dump(get_parent_class($ckm));
 print_r(get_class_methods($ckm)); // get only pulic method
+var_dump(method_exists($ckm,'me3'));
+
+
+
+function myFunc(){
+
+}
+
+
+var_dump(is_callable(array($ckm,'me3'),true,$cal_name));
+
+var_dump($cal_name);
