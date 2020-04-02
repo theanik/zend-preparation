@@ -1,8 +1,8 @@
 <?php
-namespace App\User;
-include("namespacef/file2.php");
-include("namespacef/file1.php");
-include("namespacef/file3.php");
+namespace App;
+include("file2.php");
+include("file1.php");
+include("file3.php");
 
 // echo app\file1\a;
 // app\file1\nameTest();
@@ -21,4 +21,4 @@ use App\Post\Com as com;
 com\read();
 
 
-echo (new DateTime());
+// echo (new DateTime());
