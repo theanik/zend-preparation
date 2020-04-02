@@ -1,12 +1,6 @@
-while True:
-    try:
-        x, y = map(int, input().split())
-    except EOFError:
-        break
-
-    if x > y:
-        x = x - y
-        print(x)
-    else:
-        y = y - x
-        print(y)
+x = int(input())
+xarr = list(map(int, str(x)))
+for i in range(len(xarr),0,-2):
+    print(xarr)
+    print(sum(xarr))
+    xarr = xarr[:len(xarr)-2]
