@@ -1,5 +1,7 @@
 <?php
 
+require_once("lb.php");
+
 // class my_class{
 //     var $foo = array();
 //     function my_class($val){
@@ -195,3 +197,51 @@ class Hay
 
 $h = new Hay;
 var_dump(!($h instanceof stdClass));
+a(2);
+echo "------------------------------\n";
+a();
+
+class Test
+{
+    function __call($func,$arg){
+        $tmp = "{$func} called!! \n";
+        $tmp .= print_r($arg,true);
+
+        return $tmp;
+    }
+}
+
+$t = new Test;
+print $t->array("anik","mona","rumahan");
+
+a();
+
+class boy {
+    public function __toString() {
+    return "This is a boy\n";
+   }
+}
+$toby = new boy;
+print $toby;
+
+a();
+
+
+class X {
+    static $word = "hello";
+    static function hello() {print static::$word;}
+}
+class Y extends X {
+    static $word = "bye";
+
+    static function hello(){
+        print static::$word;
+    }
+}
+Y::hello();
+a(2);
+
+class P {};
+class B1 extends P {};
+class_alias('P', 'B2');
+$b2 = new B2; echo get_class($b2); // P

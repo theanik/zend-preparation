@@ -433,3 +433,37 @@ function myFunc(){
 var_dump(is_callable(array($ckm,'me3'),true,$cal_name));
 
 var_dump($cal_name);
+
+echo "\n";
+echo "\n";
+echo "\n";
+class foo0{
+
+}
+
+trait myTrait{
+    function hi(){
+        echo "hi\n";
+    }
+}
+trait newTreait{
+    use myTrait;
+}
+
+interface bar1{}
+interface bar2{}
+class foo1 extends foo0 implements bar1, bar2{
+    use newTreait;
+    function __construct(){
+        $this->hi();
+    }
+}
+
+$foo1 = new foo1;
+
+var_dump(class_implements($foo1));
+var_dump(is_subclass_of($foo1,'foo0'));
+var_dump(class_parents($foo1));
+var_dump(class_uses($foo1));
+
+
