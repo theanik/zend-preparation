@@ -413,3 +413,24 @@ print_r($padArr);
 
 $padArr2 = array_pad($array2,-2,"MyKingdom");
 print_r($padArr2);
+
+
+echo "\n";
+echo "\n";
+echo "\n";
+echo "\n";
+
+$ar11 = array(
+    '00','1st','2nd','3rd','4th','5th',
+);
+
+// while ($position_name = current($ar11)){
+//     echo "1 ";
+//     next($ar11); // 1 1 1 1 1 1
+// }
+// echo key($ar11);
+
+while ($position_name = current($ar11)){
+    echo $position_name." ";
+    next($ar11);
+}
