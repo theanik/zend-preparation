@@ -245,3 +245,47 @@ class P {};
 class B1 extends P {};
 class_alias('P', 'B2');
 $b2 = new B2; echo get_class($b2); // P
+
+
+echo "\n";
+echo "\n";
+
+class Object1 {
+    function __construct( $entity ) {
+        // print_r($entity);
+        $entity->name="John";
+    }
+ }
+ class Entity1 {
+      public $name = "Maria";
+      public $name2 = "Mia";
+ }
+ $entity = new Entity1();
+ $obj = new Object1( $entity );
+ print $entity->name;
+ print $entity->name2;
+
+ class SleepyHead1 {
+    public $name = "Dozy";
+    public $data = array('anik','mona','antu');
+    public $arr = [];
+        public function __sleep() {
+        
+        // $this->name = "Asleep";
+        return array("data");
+    }
+        public function __wakeup() {
+        $this->name = "Rested";
+    }
+}
+$obj = unserialize(serialize(new SleepyHead1()));
+print_r($obj->name);
+
+$star = new StdClass;
+// replace this line
+$twin = clone($star);
+$star->name = "Castor";
+$twin->name = "Pollux";
+echo $star->name; // must be Castor
+echo $twin->name; // must be Castor
+echo $star->name; // must be Castor
