@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * ইন্টারফেস এ শুধু মাত্র public মেথড থাকতে পারে। 
+ */
 interface iTemplate
 {
 
@@ -9,6 +12,11 @@ interface iTemplate
 
 // Implement the interface
 // This will work
+
+/**
+ * একটি ইন্টারফেস থেকে ইমপ্লিমেন্ট করা মেথডকে আমি কখনো private বা proctected করতে পারবো না।
+ *  এগুলো সবসময় public 
+ */
 class Template implements iTemplate
 {
     private $vars = array();
@@ -125,4 +133,59 @@ class myClass implements a1,a2{
 
 (new myclass)->printName();
 
+
+/**
+ * একটি ইন্টারফেস থেকে ইমপ্লিমেন্ট করা মেথডকে আমি কখনো private বা proctected করতে পারবো না।
+ *  এগুলো সবসময় public 
+ *  * ইন্টারফেস এ শুধু মাত্র public মেথড থাকতে পারে। 
+ */
+interface myinter{
+    public function my1();
+    public function my2();
+}
+
+
+class myinter1 implements myinter{
+    function my1(){}
+    // private function my2(){}
+    function my2(){}
+}
+
+new myinter1;
+
+
+interface myinter2{
+    public function my3();
+    public function my2();
+}
+
+interface myinter3 extends myinter,myinter2{
+
+}
+
+
+class u implements myinter3{
+    public function my3(){}
+    public function my2(){}
+    public function my1(){}
+    
+}
  
+
+interface verifing{
+    function verify();
+}
+
+class Currency{
+    function verify(){
+
+    }
+}
+
+class CurrencyCheck extends Currency implements verifing{
+    //A new CurrencyCheque object is created
+    // because the verify method are already implemnts in currecy class..
+    // 
+}
+
+$cc = new CurrencyCheck;

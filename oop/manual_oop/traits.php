@@ -66,8 +66,8 @@ trait B {
 
 class Talker {
     use A, B {
-        A::sayHello insteadOf B;
-        B::sayWorld insteadOf A;
+        A::sayHello insteadOf B; // return from A
+        B::sayWorld insteadOf A; // return form B
         // B::sayHello insteadOf A;
         A::sayHello as asayhello;
         B::sayHello as bsayhello;
@@ -75,9 +75,10 @@ class Talker {
 }
 
 $talker = new Talker();
-$talker->sayHello();
-$talker->sayWorld();
-$talker->bsayhello();
+echo $talker->sayHello().PHP_EOL;
+echo $talker->sayWorld().PHP_EOL;
+echo $talker->bsayhello().PHP_EOL;
+echo $talker->asayhello().PHP_EOL;
 
 
 # Changing Method Visibility
