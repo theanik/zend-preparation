@@ -289,3 +289,367 @@ $twin->name = "Pollux";
 echo $star->name; // must be Castor
 echo $twin->name; // must be Castor
 echo $star->name; // must be Castor
+
+
+
+interface Interface1{
+    public function getFoo();
+    public function setFoo($value);
+}
+interface Interface2{
+    public function getFoo();
+    public function setBar($v);
+}
+class Baz implements Interface1,Interface2 {
+    public function getFoo(){
+        return 'foo';
+    }
+    public function setFoo($value){
+        $this->foo = $value;
+    }
+    public function setBar($value){
+        $this->bar = $value;
+    }
+}
+
+$baz = new Baz();
+$baz->getFoo();
+
+
+
+
+a(4);
+abstract class astc{
+    abstract static function myabsss();
+}
+class stc extends astc
+{
+    public $name="anik";
+    static $age=20;
+
+    private static function getDataStatic(){
+        // echo self::$name."\n"; // static mathod can't access not static proterties
+        echo self::$age."\n";
+    }
+
+    function getData(){
+        self::getDataStatic();
+    }
+
+    static function myabsss(){
+        echo __CLASS__."\n";
+    }
+}
+
+stc::myabsss();
+(new stc)->getData();
+
+
+
+/**
+ * Typehinted parameters can default to NULL
+ * A typehint class does not have to be defined when a function definition is parsed
+ * 
+ */
+
+function cktypeHint(XXX $a,$b=null){
+
+}
+
+echo "\n";
+echo "\n";
+echo "\n";
+
+class Magic {
+    public $a = "A";
+    protected $b = ['a'=>'A','b'=>'B','c'=>'C'];
+    protected $c = array(1,2,3);
+
+    public function __get($v) {
+        echo "$v,";
+        return $this->b[$v];
+    }
+
+    // public function __set($var, $val){
+    //     echo "$var: $val,";
+    //     $this->$var = $val;
+    // }
+}
+$m = new Magic();
+echo $m->a."\n";
+echo $m->b."\n";
+echo $m->c."\n";
+// echo $m->s."\n";
+echo "\n";
+echo $m->a.",".$m->b.",".$m->c.",";
+// $m->c = "CC";
+// echo $m->a.",".$m->b.",".$m->c;
+
+echo "\n";
+echo "\n";
+
+// $a = 'a';
+// $A = 'A';
+// $b = 'b';
+// $B = 'B';
+// $c = 'c';
+// $C = 'C';
+
+// echo $A.",".$a.",".$B.",".$b.",".$C.",".$c.",";
+
+
+class m2{
+    public $a = "A";
+
+    function __get($var){
+        return "not set";
+    }
+}
+
+$m2 = new m2;
+echo $m2->a."\n";
+echo $m2->b."\n";
+
+
+echo "\n";
+echo "\n";
+
+
+function mysum(){
+    return 10;
+}
+
+//  class mynclass{
+//     public $mysum;
+//     function __construct(){
+//         $this->mysum = mysum();
+//     }
+//  }
+
+//  echo (new mynclass)->mysum();
+
+echo "\n";
+echo "\n";
+echo "\n";
+
+ class myClassCk{
+
+ }
+
+
+ $obj1 = new myClassCk;
+ $obj2 = new myClassCk;
+
+
+ var_dump($obj1 == $obj2);
+ var_dump($obj1 === $obj2); //কারণ দুইটা অবজেক্ট এর মেমরি এড্রেস ভিন্ন
+
+ /**
+  * কারণ দুইটা অবজেক্ট এর মেমরি এড্রেস ভিন্ন
+  *  অবজেক্ট পাস্ বাই রেফারেন্স। 
+  */
+
+
+
+  class Ax
+  {
+   public $name = '0'; // same null == false == 0 == '0'
+   private $surname = '0';
+   public function __isset($property)
+   {
+   return true;
+   }
+  }
+  $a = new Ax;
+  $empty = empty($a->name);
+  $set = isset($a->surname);
+  var_dump($a->name);
+//   var_dump($a->surname);
+  var_dump($empty);
+  var_dump($set);
+  if ($empty === $set) {
+   echo "Yes";
+  } else {
+   echo "No";
+  }
+
+
+$x = '0';
+var_dump(empty($x));
+
+
+/**
+ * i am able to instance a class before it declaraction
+ */
+
+
+ $foo = new DownClass;
+  echo $foo->name;
+
+  class downclass{
+      public $name = "anik \n";
+      private $name2 = "anik \n";
+
+      private function getName(){
+          return $this->name;
+      }
+  }
+
+  $ref = new ReflectionClass('DownClass');
+ 
+  print_r($ref->getMethods());
+  print_r($ref->getProperties());
+
+
+  class SetMissing {
+    public function __set($name, $value) {
+    $this->$name = filter_var($value, FILTER_SANITIZE_STRING);
+    }
+   }
+   $obj = new SetMissing();
+   $obj->example = "<strong>hello</strong>";
+   echo $obj->example . PHP_EOL; // hello
+   //এখন তো example ভ্যারিয়েবল টা সেট হই গেছে।
+   //পরেরবার তাই আর __set ফাঙ্কশন টায় যাবে না।
+   //এবার example টা override করবে  
+   $obj->example = "<strong>hello</strong>"; //<strong>hello</strong>
+   echo $obj->example;
+
+
+
+   echo "\n";
+   echo "\n";
+
+
+   trait Dog {
+    public function makeNoise() {
+        echo "Woof";
+    }
+     public function wantWalkies() {
+        echo "Yes please!";
+    }
+}
+trait Cat {
+    public function makeNoise() {
+        echo "Purr";
+     }
+    public function wantWalkies() {
+        echo "No thanks!";
+    }
+}
+class DomesticPet
+{
+    use Dog, Cat {
+        Cat::makeNoise insteadof Dog;
+        Cat::wantWalkies as kittyWalk;
+        Dog::wantWalkies insteadof Cat;
+    }
+}
+$obj = new DomesticPet();
+$obj->kittyWalk();
+$obj->makeNoise();
+$obj->wantWalkies();
+
+
+
+
+echo "\n";
+echo "\n";
+
+/**
+ * একটি ইন্টারফেস থেকে ইমপ্লিমেন্ট করা মেথডকে আমি কখনো private বা proctected করতে পারবো না।
+ *  এগুলো সবসময় public 
+ *  * ইন্টারফেস এ শুধু মাত্র public মেথড থাকতে পারে। 
+ */
+interface myinter{
+    public function my1();
+    public function my2();
+}
+
+
+class myinter1 implements myinter{
+    function my1(){}
+    // private function my2(){}
+    function my2(){}
+}
+
+new myinter1;
+
+
+
+
+function HelloWorld() {
+    echo HELLO;
+}
+//const HELLO = "Hello World!"; // work as fine
+// HelloWorld(); 
+//const HELLO = "Hello World!"; // error
+
+
+
+/**
+ * Class constants can not omit initialization !(not default to NULL)
+ */
+
+ class ckcl{
+    //  const NAME; //error
+    const NAME = "ANIK";
+ }
+
+ new ckcl;
+
+
+
+ class aaa
+{
+    public $val;
+}
+
+function renderVal (aaa $a)
+{
+    if ($a) {
+        echo $a->val;
+    }
+}
+$aaa = new aaa;
+// renderVal (null);
+
+
+interface myinter2{
+    public function my3();
+    public function my2();
+}
+
+interface myinter3 extends myinter,myinter2{
+
+}
+
+
+class u implements myinter3{
+    public function my3(){}
+    public function my2(){}
+    public function my1(){}
+    
+}
+
+
+
+class M {
+    public function identify() {
+       echo self::myName(); // Mike
+    //    echo static::myName(); // November
+    }
+    public function myName() {
+       return "Mike";
+    }
+ }
+ class N extends M {
+    public function myName() {
+       return "November";
+    }
+ }
+ function m(N $n) {
+    $n->identify();
+ }
+ $m = new N();
+ m($m);
