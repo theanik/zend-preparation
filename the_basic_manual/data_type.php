@@ -192,12 +192,16 @@ M;
 echo $s4;
 echo "\n";
 
+echo "this in a \v string\n";
 
+echo "hello\t";
+echo "\tEarth \n";
 
+echo "thiss is \r test  sring";
 /**
  * Array
  */
-
+echo "\v";
 $array = array(
     1    => "a",
     "1"  => "b",
@@ -301,3 +305,222 @@ unset($color); /* ensure that following writes to
 $color will not modify the last array element */
 
 print_r($colors);
+
+
+
+/**
+ * Logical Ope memorable
+ */
+
+$x=TRUE;
+$y=FALSE;
+$z=$y OR $x;
+
+var_dump($z);
+
+
+var_dump((bool) array());
+var_dump((bool) "false");
+
+$s = !"testing";
+
+var_dump(!$s);
+
+var_dump(0);
+
+$a = 0x1A;
+var_dump($a);
+
+var_dump(round(15/4));
+
+
+$x = 8 - 6.4;
+var_dump($x);
+$y = 1.6;
+
+var_dump($x == $y);
+var_dump(round($x,2) == $y);
+
+var_dump(NAN == NAN);
+var_dump(NAN);
+var_dump((bool) NAN);
+var_dump(NAN === TRUE); // here nan a float
+var_dump((bool) NAN === TRUE); // here nan a float
+
+/**
+ * string
+ */
+print "abcdefghijklmnopqurstvwx\ey\ez\n"; // erese y z
+print "abcdefghijklmnopqurstv\rwxyz"; //  wzyzefghijklmnopqurstv
+print "abcdefghijklmnopqurstv\fwxyz"; //  
+echo "\n\n";
+
+// var_dump("the test \r string");
+
+class foo {
+    var $bar = 'I am bar.';
+}
+
+$foo = new foo();
+$bar = 'bar';
+$baz = array('foo', 'bar', 'baz', 'quux');
+echo "{$foo->$bar}\n";
+echo "{$foo->{$baz[1]}}\n";
+
+
+class beers {
+    const softdrink = 'rootbeer';
+    public static $ale = 'ipa';
+    public $name = "name";
+}
+
+$b = new beers;
+
+$rootbeer = 'A & W';
+$ipa = 'Alexander Keith\'s';
+
+// This works; outputs: I'd like an A & W
+echo "I'd like an {${beers::softdrink}}\n";
+
+// This works too; outputs: I'd like an Alexander Keith's
+echo "I'd like an {${beers::$ale}}\n";
+
+echo "my name is $b->name \n";
+echo "her name is {${beers::$ale}} \n";
+
+$name = "myName";
+$s = <<<'NOW'
+	My name is {$name}
+NOW;
+echo $s;
+
+
+$str = "abc";
+
+var_dump($str['x']);
+var_dump(isset($str['x']));
+
+echo PHP_INT_MAX;
+echo "\n";
+echo PHP_INT_MIN;
+
+
+$a = 10 + "10.10 hello";
+var_dump($a);
+
+
+$foo = 1 + "10 Small Pigs"; 
+
+echo "\$foo == $foo ; type is ".gettype($foo)." \n";
+
+$fruit=array(
+    'a'=>'apple',
+    'b'=>'banana',
+);
+echo $fruit['a'];
+// echo "This is $fruit[\"a\"] \n";
+echo "This is {$fruit['a']} \n";
+echo "This is ${fruit['a']} \n";
+echo "This is {{$fruit['a']}} \n";
+
+var_dump('1.22.00' > '01.23.00');
+var_dump('1' > '01');
+var_dump('22' > '23');
+var_dump('00' > '00');
+// var_dump('1.22.00' > '01.23.00');
+
+
+
+$arr = [0,1,2];
+
+list(,$third) = $arr;
+
+var_dump($third);
+
+
+// error_reporting(E_ALL);
+
+$arr = array('fruit' => 'apple', 'veggie' => 'carrot');
+
+// Correct
+print $arr['fruit'];  // apple
+print $arr['veggie']; // carrot
+// print $arr[fruit];
+
+
+$switching = array(         10,
+                    5    =>  6,
+                    3    =>  7, 
+                    'a'  =>  4,
+                            11,
+                    '8'  =>  2,
+                    '02' => 77,
+                    0    => 12 
+                  );
+    
+// print $switching[0];
+var_dump($switching);
+
+
+$arr1 = array(1,3);
+
+$arr2 = &$arr1;
+
+$arr2[] = 4;
+
+var_dump($arr1);
+var_dump($arr2);
+
+
+/*
+Iterable
+
+*/
+
+function bar() : iterable {
+    return [3,4,5,6,"anik"];
+}
+
+function gen(): iterable {
+    yield 1;
+    yield 2;
+    yield 3;
+}
+$data = [1,5,6,7];
+$str = "asdfhjkl";
+function foo(iterable $data){
+    foreach ($data as $el)
+        echo $el . " ";
+}
+
+foo(gen());
+
+echo "\n";
+echo "\n";
+echo "\n";
+
+/**
+ * object
+ */
+
+ $arr = ["1",'2','3','data4'=>'dart4','5'];
+
+ $obj = (object) $arr;
+
+ var_dump(key($obj));
+ var_dump($obj);
+ print $obj->{'3'};
+//  print $obj->data4;
+
+
+/*
+NULL
+
+*/
+$arr = array();
+$str = 0;
+$a = NULL;
+$b = null;
+var_dump(is_null($a));
+var_dump(is_null($str));
+var_dump(is_null($a) === is_null($str));

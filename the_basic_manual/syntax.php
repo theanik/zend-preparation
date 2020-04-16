@@ -14,14 +14,13 @@ $expression = 10 > 5;
 <?php if ($expression == true): ?>
   This will show if the expression is true.
 <?php else: ?>
-  Otherwise this will show.
-<?php endif; ?>
+    Otherwise this will show.
+<?php endif;?>
 
 <?php echo 'This is a test' . PHP_EOL ?>
-<?php 
+<?php
 
-echo 'This is a test' 
-
+echo 'This is a test'
 
 ?>
 
@@ -30,15 +29,27 @@ echo 'This is a test'
 
 <?php
 
-
 /**
- echo p this is commfent /**
- cause a error
+echo p this is commfent /**
+cause a error
  */
 //  */
 
- // comment
+// comment
 ?>
  <!-- comment
 <?php echo "data\n" ?>
 -->
+
+
+<?php
+echo 'This is a test';
+?>
+
+<?php echo 'This is a test' ?>
+
+<?php echo 'We omitted the last closing tag';
+?>
+
+<?php
+
