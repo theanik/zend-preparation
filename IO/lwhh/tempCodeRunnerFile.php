@@ -1,0 +1,2 @@
+<?php
+SEEK_END
