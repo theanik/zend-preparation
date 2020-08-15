@@ -1,7 +1,9 @@
 <?php
 
-function double($x, $y) {
-  return 2 * $x + $y;
-}
-
-echo call_user_func('double', 3,4);
+// $op2 = "blabla";
+// function foo($op1)
+// {
+//     echo $op1;
+//     echo $op2;
+// }
+// foo("hello");
