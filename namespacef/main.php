@@ -43,21 +43,26 @@
 //     echo a\three::_1();
 // }
 
-// namespace app\a{
-//     class two{
-//        public static function _1(){
-//         echo 'a two _1 '.PHP_EOL;
-//        }
-//     }
-// }
+namespace app\a{
+    class two{
+       public static function _1(){
+        echo 'a two _1 '.PHP_EOL;
+       }
+    }
+}
 
-// namespace app\a{
-//     class three{
-//        public static function _1(){
-//         echo 'a three _1 \n';
-//        }
-//     }
-// }
+namespace app\a{
+    class three{
+       public static function _1(){
+        echo 'a three _1 \n';
+       }
+    }
+}
+
+namespace hi{
+    
+    \App\a\two::_1();
+}
 
 
 // namespace my\name{ // see "Defining Namespaces" section
@@ -66,7 +71,7 @@
 //     public $a = "data";
 // }
 // function myfunction() {}
-// const MYCONST = 1;
+// const MYCONST = "Hello";
 // \define("DATA","ANIK");
 
 // $a = new MyClass;
@@ -78,10 +83,10 @@
 // // $d = namespace\MYCONST; // see "namespace operator and __NAMESPACE__
 //                         // constant" section
 // // $d = __NAMESPACE__ . '\MYCONST';
-// echo DATA;
+// // echo DATA;
 // }
 // namespace my\name2{
-// echo \my\name\MYCONST;// see "Namespaces and dynamic language features" section
+// echo \My\Name\MYCONST;// see "Namespaces and dynamic language features" section
 
 
 
@@ -92,10 +97,10 @@
 // use file3;
 // echo MESSAGE;
 
-namespace MyProject {
+// namespace MyProject {
 
-    const CONNECT_OK = 1;
-    class Connection { /* ... */ }
-    function connect() { /* ... */  }
+//     const CONNECT_OK = 1;
+//     class Connection { /* ... */ }
+//     function connect() { /* ... */  }
 
-}
+// }
